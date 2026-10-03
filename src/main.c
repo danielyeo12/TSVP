@@ -8,16 +8,17 @@
 #include <stdbool.h>
 #include "gpio.h"
 
-
+#define IG_SWITCH_ACC   A1
+#define IG_SWITCH_RUN   A2
+#define IG_SWITCH_START A3
 
 int main() {
-    gpio_config_output(A2, 0, 0);
+    gpio_config_output(IG_SWITCH_RUN, 0, 0);
+    gpio_config_output(IG_SWITCH_START, 0, 0);
+    gpio_config_output(IG_SWITCH_ACC, 0, 0);
 
     while(1) {
-        gpio_write(A2, true);
-        for(volatile int i = 0; i < 1000000; i++);
-        gpio_write(A2, false);
-        for(volatile int i = 0; i < 1000000; i++);
+
     }
     return 0;
 }
